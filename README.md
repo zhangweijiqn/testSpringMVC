@@ -13,6 +13,7 @@ tomcat plugin:
               <uriEncoding>utf-8</uriEncoding>
             </configuration>
           </plugin>
+          
     configure: add maven -->
                         working directory: web directory
                         command line: clean tomcat7:run

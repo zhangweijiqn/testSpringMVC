@@ -26,14 +26,14 @@ public class HomeController {
     @Autowired
     private PersonService aService;
 
-    @Value("${kerberos.killapp.cmd}")   //
+    @Value("${kerberos.killapp.cmd}")   //注入值到变量中
     private String kerberos_killapp_cmd;
 
     @RequestMapping(value = {"/","/home"},method = RequestMethod.GET)
     public String test(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse,Model model) throws IOException {
         aService.barA();
         String result = aService.getPersonByMybatis("zhang1");
-        model.addAttribute("message", "hello,world");
+        model.addAttribute("message", kerberos_killapp_cmd);
         return "home";
     }
 

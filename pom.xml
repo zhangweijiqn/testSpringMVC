@@ -110,8 +110,45 @@
 
   </dependencies>
 
+    <!--<build>-->
+        <!--<finalName>Test-SpringMVC</finalName>-->
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<filtering>true</filtering>-->
+            <!--</resource>-->
+        <!--</resources>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.tomcat.maven</groupId>-->
+                <!--<artifactId>tomcat7-maven-plugin</artifactId>-->
+                <!--<version>2.2</version>-->
+                <!--<configuration>-->
+                    <!--<path>/</path>-->
+                    <!--<port>8086</port>-->
+                    <!--<uriEncoding>utf-8</uriEncoding>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--&lt;!&ndash; war插件 &ndash;&gt;-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-war-plugin</artifactId>-->
+                <!--<version>2.1</version>-->
+                <!--<configuration>-->
+                    <!--<warName>test</warName>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
+
   <build>
     <finalName>Test-SpringMVC</finalName>
+      <resources>
+          <resource>
+              <directory>src/main/resources</directory>
+              <filtering>true</filtering>
+          </resource>
+      </resources>
     <plugins>
       <plugin>
         <groupId>org.mortbay.jetty</groupId>
@@ -159,6 +196,7 @@
           <jdbc.url>jdbc:mysql://localhost:3306/test</jdbc.url>
           <jdbc.username>root</jdbc.username>
           <jdbc.password>root</jdbc.password>
+          <package.environment>compile</package.environment>
       </properties>
     </profile>
 
@@ -172,6 +210,7 @@
         <db.mysql.url>jdbc:mysql://172.27.12.61:3306/jdmp</db.mysql.url>
         <db.mysql.username>jdmp</db.mysql.username>
         <db.mysql.password>MllhSH8KV7lMDN8r</db.mysql.password>
+          <package.environment>provided</package.environment>
       </properties>
     </profile>
   </profiles>

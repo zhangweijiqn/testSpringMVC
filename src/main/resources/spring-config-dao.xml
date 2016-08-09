@@ -19,7 +19,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
     <!--</bean>-->
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="driverClassName" value="${jdbc.driver.ClassName}"></property>
         <property name="url" value="${jdbc.url}?characterEncoding=utf-8&amp;connectTimeout=1000&amp;autoReconnect=true"></property>
         <property name="username" value="${jdbc.username}"></property>
         <property name="password" value="${jdbc.password}"></property>
@@ -34,6 +34,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
         <property name="timeBetweenEvictionRunsMillis" value="3600000" />
         <property name="minEvictableIdleTimeMillis" value="3600000" />
     </bean>
+
     <!--using jdbcTemplate，加载dataSource，提供连接和SQLException的处理的模板，在DAO中直接使用jdbcTemplate即可-->
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <constructor-arg ref="dataSource"/>
