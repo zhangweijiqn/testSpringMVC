@@ -3,7 +3,7 @@
 *out*
 *lib*
 src/main/resources/*.jar
-src/main/resources/data/
+src/main/resources/log.txt
 *.iml
 rec.log*
 

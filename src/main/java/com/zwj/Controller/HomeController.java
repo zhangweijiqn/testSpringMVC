@@ -32,8 +32,8 @@ public class HomeController {
     @RequestMapping(value = {"/","/home"},method = RequestMethod.GET)
     public String test(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse,Model model) throws IOException {
         aService.barA();
-        String result = aService.getPersonByMybatis("zhang1");
-        model.addAttribute("message", kerberos_killapp_cmd);
+        String result = aService.getPersonByMybatis("abc");
+        model.addAttribute("message", result);
         return "home";
     }
 

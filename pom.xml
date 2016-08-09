@@ -189,7 +189,7 @@
       <id>dev</id>
       <properties>
         <!-- log日志 -->
-          <log.path>resources/</log.path>
+          <log.path>src/main/resources/log.txt</log.path>
           <log.level>DEBUG</log.level>
         <!-- mysql -->
           <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
