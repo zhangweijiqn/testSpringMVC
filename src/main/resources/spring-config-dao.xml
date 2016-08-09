@@ -10,12 +10,29 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 
     <!--test for jdbc connect to mysql-->
     <!-- jdbc properties import from a properties file, mysql dependency:mysql-connector-java -->
-    <context:property-placeholder location="classpath:jdbc.properties"/>
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="${jdbc.driverClassName}"/>
-        <property name="url" value="${jdbc.url}"/>
-        <property name="username" value="${jdbc.username}"/>
-        <property name="password" value="${jdbc.password}"/>
+
+    <!--<bean id="dataSource2" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+        <!--<property name="driverClassName" value="${jdbc.driverClassName}"/>-->
+        <!--<property name="url" value="${jdbc.url}"/>-->
+        <!--<property name="username" value="${jdbc.username}"/>-->
+        <!--<property name="password" value="${jdbc.password}"/>-->
+    <!--</bean>-->
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="${jdbc.url}?characterEncoding=utf-8&amp;connectTimeout=1000&amp;autoReconnect=true"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+        <property name="initialSize" value="1" />
+        <property name="maxActive" value="100" />
+        <property name="maxIdle" value="20" />
+        <property name="maxWait" value="1000" />
+        <property name="poolPreparedStatements" value="true"/>
+        <property name="validationQuery" value="select 1" />
+        <property name="testWhileIdle" value="true" />
+        <property name="testOnBorrow" value="true" />
+        <property name="timeBetweenEvictionRunsMillis" value="3600000" />
+        <property name="minEvictableIdleTimeMillis" value="3600000" />
     </bean>
     <!--using jdbcTemplate，加载dataSource，提供连接和SQLException的处理的模板，在DAO中直接使用jdbcTemplate即可-->
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">

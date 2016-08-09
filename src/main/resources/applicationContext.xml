@@ -14,10 +14,17 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
     <!--配置spring mvc注解驱动特性-->
     <mvc:annotation-driven/>
 
+    <context:property-placeholder location="classpath*:jdbc.properties"/>
+
     <!-- enable component scanning (be ware that this does not enable mapper scanning!) -->
     <!--conponent-scan用来扫描package下class,将@component等注解注入成bean-->
     <context:component-scan base-package="com.zwj.Service" />
     <context:component-scan base-package="com.zwj.DAO" />
     <context:component-scan base-package="com.zwj.Controller" />
+
+    <!--jdbc connect to mysql, inject to dao -->
+    <import resource="spring-config-dao.xml"/>
+    <!--service config-->
+    <import resource="spring-config-service.xml"/>
 
 </beans>

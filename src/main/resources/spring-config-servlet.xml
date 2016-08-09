@@ -11,7 +11,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 
     <!--处理静态页面请求-->
     <mvc:resources mapping="/resources/**"
-               location="/resouirces/"/>
+               location="/resources/"/>
 
     <!--configure view resolver to deal the dispatherServlet's request-->
     <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -21,10 +21,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
         <!--会自动为controll返回的view加上/WEB-INF/views/前缀和.jsp后缀-->
     </bean>
 
-    <!--jdbc connect to mysql, inject to dao -->
-    <import resource="spring-config-dao.xml"/>
-    <!--service config-->
-    <import resource="spring-config-service.xml"/>
+
 
 
 

@@ -1,16 +1,14 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
+<?xml version="1.0" encoding="GBK"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
   <display-name>Archetype Created Web Application</display-name>
-    <!-- é…ç½®Spring MVC DispatcherServlet,Springå‰ç«¯æŽ§åˆ¶å™¨ -->
+    <!-- ÅäÖÃSpring MVC DispatcherServlet,SpringÇ°¶Ë¿ØÖÆÆ÷ -->
     <servlet>
         <servlet-name>MyServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <!-- åˆå§‹åŒ–å‚æ•° -->
+        <!-- ³õÊ¼»¯²ÎÊý -->
         <init-param>
-            <!-- åŠ è½½SpringMVCçš„xmlåˆ° springçš„ä¸Šä¸‹æ–‡å®¹å™¨ä¸­ -->
+            <!-- ¼ÓÔØSpringMVCµÄxmlµ½ springµÄÉÏÏÂÎÄÈÝÆ÷ÖÐ -->
             <param-name>contextConfigLocation</param-name>
             <param-value>
                 classpath*:applicationContext.xml
@@ -19,18 +17,18 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
-    <!-- é…ç½®DispatcherServletæ‰€éœ€è¦æ‹¦æˆªçš„ url -->
+    <!-- ÅäÖÃDispatcherServletËùÐèÒªÀ¹½ØµÄ url -->
     <servlet-mapping>
         <servlet-name>MyServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <!--é…ç½®ContextLoaderListeneræ¥åŠ è½½å¤šä¸ªé…ç½®æ–‡ä»¶ï¼Œé…åˆcontextConfigLocation-->
+    <!--ÅäÖÃContextLoaderListenerÀ´¼ÓÔØ¶à¸öÅäÖÃÎÄ¼þ£¬ÅäºÏcontextConfigLocation-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-    <!--é…ç½®å¤šä¸ªspringé…ç½®æ–‡ä»¶ï¼Œweb.xmlä¸­çš„ContextLoaderListenerä¼šè¿›è¡ŒåŠ è½½-->
+    <!--ÅäÖÃ¶à¸öspringÅäÖÃÎÄ¼þ£¬web.xmlÖÐµÄContextLoaderListener»á½øÐÐ¼ÓÔØ-->
     <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
