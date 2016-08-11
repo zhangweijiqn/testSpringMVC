@@ -37,6 +37,14 @@ public class HomeController {
         return "home";
     }
 
+    @RequestMapping(value = {"/testMybatis"},method = RequestMethod.GET)
+    public String testMybatis(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse,Model model) throws IOException {
+        aService.barA();
+        String result = aService.getPersonByMybatis("abc");
+        model.addAttribute("message", result);
+        return "home";
+    }
+
     //  Spring REST webservice
     //  URI:/control/6
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)    //接收大于4的任意数

@@ -1,13 +1,11 @@
 package com.zwj.Service;
 
 import com.zwj.Beans.Person;
-import com.zwj.DAO.PersonDAO;
-import com.zwj.mapper.UserMapper;
+import com.zwj.DAO.dao2.PersonDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**

@@ -1,5 +1,6 @@
-package com.zwj.DAO;
+package com.zwj.DAO.dao2;
 
+import com.zwj.DAO.dao.PersonMapper;
 import com.zwj.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -43,9 +44,17 @@ public class PersonDAOImpl implements PersonDAO {
     }
 
     @Resource(name="userMapper")
+//    这种方式调用的是Mybatis注解的方式
     private UserMapper userMapper;
     //使用spring集成mybatis方式
     public List<Person> getPersonByName_Mybatis(String name) {
         return this.userMapper.getUser(name);
     }
+
+    @Autowired
+    private PersonMapper personMapper;
+    public List<com.zwj.DAO.domain.Person> getPersonById(String Id){
+        return personMapper.selectById(Id);
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.zwj.DAO;
+package com.zwj.DAO.dao2;
 
 import com.zwj.Beans.Person;
 

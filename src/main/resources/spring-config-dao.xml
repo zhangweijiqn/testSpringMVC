@@ -50,19 +50,26 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 
     <!--inject jdbcTemplate to PersonDAO class-->
     <!--将jdbcTemplate注入到PersonDAO中，改为了@Autowired注解形式-->
-    <!--<bean id="PersonDAO" class="com.zwj.DAO.PersonDAOImpl">-->
+    <!--<bean id="PersonDAO" class="com.zwj.DAO.dao2.PersonDAOImpl">-->
         <!--<property name="jdbcTemplate" ref="jdbcTemplate"/>-->
     <!--</bean>-->
 
     <!--use mybatis,first need sqlSessionFactory bean-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
+        <property name="typeAliasesPackage" value="com.zwj.DAO.domain" />   <!-- java bean --> <!-- new property-->
+        <property name="mapperLocations" value="classpath*:sqlmap/*.xml" /> <!-- xml sql --> <!-- new property-->
     </bean>
 
-    <!--mybatis mapper define-->
+    <!--mybatis mapper define, annotation 方式-->
     <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="com.zwj.mapper.UserMapper" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
 
+    <!--inject dao list-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+        <property name="basePackage" value="com.zwj.DAO.dao" /> <!--mapper -->
+    </bean>
 </beans>
