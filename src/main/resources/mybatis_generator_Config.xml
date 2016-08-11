@@ -3,6 +3,8 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
+    <!--MySQL连接驱动-->
+    <!--<classPathEntry location="mysql-connector-java-5.1.39-bin.jar" />-->
 
     <context id="mysqlTables" targetRuntime="MyBatis3">
 
@@ -47,4 +49,5 @@
             <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />
         </table>
     </context>
+    <!-- 使用jar -->
 </generatorConfiguration>
