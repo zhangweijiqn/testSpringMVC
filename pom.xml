@@ -146,6 +146,19 @@
       <resources>
           <resource>
               <directory>src/main/resources</directory>
+              <includes>
+                  <include>**/*</include>
+              </includes>
+              <excludes>
+                  <exclude>dev_config/*</exclude>
+              </excludes>
+              <filtering>true</filtering>
+          </resource>
+          <resource>    <!--当profile为dev时，使用的是 dev_config的配置-->
+              <directory>src/main/resources/${package.environment}</directory>
+              <includes>
+                  <include>**/*</include>
+              </includes>
               <filtering>true</filtering>
           </resource>
       </resources>
@@ -221,7 +234,7 @@
           <jdbc.url>jdbc:mysql://localhost:3306/test</jdbc.url>
           <jdbc.username>root</jdbc.username>
           <jdbc.password>root</jdbc.password>
-          <package.environment>compile</package.environment>
+          <package.environment>dev_config</package.environment>
       </properties>
     </profile>
 
@@ -235,7 +248,7 @@
         <db.mysql.url>jdbc:mysql://172.27.12.61:3306/jdmp</db.mysql.url>
         <db.mysql.username>jdmp</db.mysql.username>
         <db.mysql.password>MllhSH8KV7lMDN8r</db.mysql.password>
-          <package.environment>provided</package.environment>
+          <package.environment>pro_config</package.environment>
       </properties>
     </profile>
   </profiles>
